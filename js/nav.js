@@ -40,3 +40,18 @@ document.querySelectorAll('.nav-link').forEach(link => {
   const norm = href.replace(/^\.?\//, '');
   if (path.endsWith(norm) && norm !== '') link.classList.add('active');
 });
+
+/* ── Smooth scroll per anchor (#) con offset header fisso ── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    const id = anchor.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    const navHeight = (document.getElementById('site-header')?.offsetHeight ?? 64) + 8;
+    const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    history.pushState(null, '', `#${id}`);
+  });
+});
