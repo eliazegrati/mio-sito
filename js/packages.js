@@ -1,12 +1,3 @@
-/* ── Accessibilità tastiera per pkg-card ── */
-document.querySelectorAll('.pkg-card').forEach(card => {
-  card.setAttribute('role', 'button');
-  card.setAttribute('tabindex', '0');
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
-  });
-});
-
 /* ── Tab switching ── */
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -19,62 +10,47 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     document.querySelectorAll('.tab-pane').forEach(p => {
       p.classList.toggle('active', p.id === `pane-${target}`);
     });
-    document.querySelectorAll('.pkg-detail').forEach(d => d.classList.remove('open'));
-    document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.pkg-expand-btn').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.textContent = 'Scopri di più ↓';
+      const d = b.closest('.pkg-card')?.querySelector('.pkg-card-detail');
+      if (d) d.style.maxHeight = '0';
+    });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
 const isMobileLayout = () => window.matchMedia('(max-width: 860px)').matches;
-const NAV_H = 72; // altezza header fisso
 
-/* ── Card click → detail panel ── */
-document.querySelectorAll('.pkg-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const detailId = card.dataset.detail;
-    if (!detailId) return;
-    const detail = document.getElementById(detailId);
-    if (!detail) return;
+/* ── Card expand / collapse ── */
+document.querySelectorAll('.pkg-expand-btn').forEach(expandBtn => {
+  expandBtn.addEventListener('click', () => {
+    const card = expandBtn.closest('.pkg-card');
+    const detail = card.querySelector('.pkg-card-detail');
+    const isOpen = expandBtn.getAttribute('aria-expanded') === 'true';
 
-    const isOpen = detail.classList.contains('open');
-
-    document.querySelectorAll('.pkg-detail').forEach(d => d.classList.remove('open'));
-    document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+    // close all other cards first
+    document.querySelectorAll('.pkg-expand-btn').forEach(b => {
+      if (b === expandBtn) return;
+      b.setAttribute('aria-expanded', 'false');
+      b.textContent = 'Scopri di più ↓';
+      const d = b.closest('.pkg-card')?.querySelector('.pkg-card-detail');
+      if (d) d.style.maxHeight = '0';
+    });
 
     if (!isOpen) {
-      detail.classList.add('open');
-      card.classList.add('selected');
-
+      expandBtn.setAttribute('aria-expanded', 'true');
+      expandBtn.textContent = 'Chiudi ↑';
+      detail.style.maxHeight = detail.scrollHeight + 'px';
+    } else {
+      expandBtn.setAttribute('aria-expanded', 'false');
+      expandBtn.textContent = 'Scopri di più ↓';
+      detail.style.maxHeight = '0';
       if (isMobileLayout()) {
-        // Su mobile: attendo fine animazione (450ms) poi porto la card in cima
         setTimeout(() => {
-          const top = card.getBoundingClientRect().top + window.scrollY - NAV_H - 12;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }, 460);
-      } else {
-        setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 310);
       }
-    }
-  });
-});
-
-/* ── Chiudi dettaglio ── */
-document.querySelectorAll('.pkg-close-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    const detail = btn.closest('.pkg-detail');
-    const detailId = detail?.id;
-    const card = detailId ? document.querySelector(`[data-detail="${detailId}"]`) : null;
-
-    detail?.classList.remove('open');
-    document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
-
-    // Su mobile: torna alla card, non lasciare l'utente nel footer
-    if (card && isMobileLayout()) {
-      setTimeout(() => {
-        const top = card.getBoundingClientRect().top + window.scrollY - NAV_H - 12;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }, 60);
     }
   });
 });
