@@ -1,0 +1,22 @@
+# ── macOS ──────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ── Dipendenze ─────────────────────────
+node_modules/
+
+# ── Strumenti di sviluppo locale ───────
+temporary screenshots/
+screenshot.mjs
+serve.mjs
+
+# ── Istruzioni AI (Claude) ─────────────
+CLAUDE.md
+
+# ── Sottocartelle non parte del sito ───
+Offerte/

@@ -1,0 +1,80 @@
+:root {
+  /* ── Palette brand ── */
+  --terracotta:     #BB5D30;
+  --terracotta-d:   #A35229;
+  --terracotta-15:  rgba(187,93,48,0.15);
+  --terracotta-08:  rgba(187,93,48,0.08);
+  --terracotta-04:  rgba(187,93,48,0.04);
+  --ambra:          #D88F4D;
+  --ambra-15:       rgba(216,143,77,0.15);
+  --ambra-08:       rgba(216,143,77,0.08);
+  --verde:          #6E908F;
+  --verde-15:       rgba(110,144,143,0.15);
+  --verde-08:       rgba(110,144,143,0.08);
+  --inchiostro:     #2C1A0E;
+  --inchiostro-70:  rgba(44,26,14,0.70);
+  --inchiostro-50:  rgba(44,26,14,0.50);
+  --inchiostro-30:  rgba(44,26,14,0.30);
+  --inchiostro-20:  rgba(44,26,14,0.20);
+  --inchiostro-10:  rgba(44,26,14,0.10);
+  --inchiostro-06:  rgba(44,26,14,0.06);
+  --inchiostro-03:  rgba(44,26,14,0.03);
+
+  /* ── Sfondi ── */
+  --bg:       #FDFAF6;
+  --bg-warm:  #F4EDE2;
+  --bg-white: #FFFFFF;
+
+  /* ── Font ── */
+  --font-display: 'Crimson Pro', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Scale tipografica ── */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  /* ── Spaziatura (griglia 8px) ── */
+  --sp-1:  0.5rem;
+  --sp-2:  1rem;
+  --sp-3:  1.5rem;
+  --sp-4:  2rem;
+  --sp-5:  2.5rem;
+  --sp-6:  3rem;
+  --sp-8:  4rem;
+  --sp-10: 5rem;
+  --sp-12: 6rem;
+  --sp-16: 8rem;
+  --sp-20: 10rem;
+
+  /* ── Layout ── */
+  --max-w:      1120px;
+  --max-w-text: 640px;
+  --gutter:     clamp(1.25rem, 5vw, 2.5rem);
+  --nav-h:      64px;
+
+  /* ── Raggi ── */
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   14px;
+  --r-xl:   20px;
+  --r-2xl:  28px;
+  --r-full: 9999px;
+
+  /* ── Ombre ── */
+  --shadow-sm: 0 1px 4px rgba(44,26,14,0.07), 0 1px 2px rgba(44,26,14,0.04);
+  --shadow-md: 0 4px 20px rgba(44,26,14,0.09), 0 2px 8px rgba(44,26,14,0.05);
+  --shadow-lg: 0 12px 48px rgba(44,26,14,0.11), 0 4px 16px rgba(44,26,14,0.06);
+
+  /* ── Transizioni ── */
+  --t-fast: 150ms cubic-bezier(0.4,0,0.2,1);
+  --t-base: 260ms cubic-bezier(0.4,0,0.2,1);
+  --t-slow: 420ms cubic-bezier(0.22,1,0.36,1);
+}
