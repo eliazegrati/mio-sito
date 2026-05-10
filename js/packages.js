@@ -20,8 +20,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-const isMobileLayout = () => window.matchMedia('(max-width: 860px)').matches;
-
 /* ── Card expand / collapse ── */
 document.querySelectorAll('.pkg-expand-btn').forEach(expandBtn => {
   expandBtn.addEventListener('click', () => {
@@ -29,7 +27,7 @@ document.querySelectorAll('.pkg-expand-btn').forEach(expandBtn => {
     const detail = card.querySelector('.pkg-card-detail');
     const isOpen = expandBtn.getAttribute('aria-expanded') === 'true';
 
-    // close all other cards first
+    // close all other cards
     document.querySelectorAll('.pkg-expand-btn').forEach(b => {
       if (b === expandBtn) return;
       b.setAttribute('aria-expanded', 'false');
@@ -41,16 +39,17 @@ document.querySelectorAll('.pkg-expand-btn').forEach(expandBtn => {
     if (!isOpen) {
       expandBtn.setAttribute('aria-expanded', 'true');
       expandBtn.textContent = 'Chiudi ↑';
-      detail.style.maxHeight = detail.scrollHeight + 'px';
+      // scrollHeight can be 0 on some mobile browsers when max-height:0 is set;
+      // fall back to a large value so the transition always fires correctly.
+      const h = detail.scrollHeight;
+      detail.style.maxHeight = (h > 0 ? h : 9999) + 'px';
     } else {
       expandBtn.setAttribute('aria-expanded', 'false');
       expandBtn.textContent = 'Scopri di più ↓';
       detail.style.maxHeight = '0';
-      if (isMobileLayout()) {
-        setTimeout(() => {
-          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 310);
-      }
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 310);
     }
   });
 });

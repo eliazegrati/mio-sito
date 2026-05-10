@@ -735,15 +735,6 @@ body {
   .pkg-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
   .pkg-detail-body { grid-template-columns: 1fr; }
   .case-details-inner { grid-template-columns: 1fr; }
-
-  /* Apertura pannello più morbida su mobile: solo fade, no sbalzo */
-  .pkg-detail.open {
-    animation: pkgFadeIn 0.45s cubic-bezier(0.22,1,0.36,1);
-  }
-  @keyframes pkgFadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
 }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
