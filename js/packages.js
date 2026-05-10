@@ -12,14 +12,16 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.tab;
     document.querySelectorAll('.tab-btn').forEach(b => {
-      b.classList.toggle('active', b === btn);
-      b.setAttribute('aria-selected', String(b === btn));
+      const match = b.dataset.tab === target;
+      b.classList.toggle('active', match);
+      b.setAttribute('aria-selected', String(match));
     });
     document.querySelectorAll('.tab-pane').forEach(p => {
       p.classList.toggle('active', p.id === `pane-${target}`);
     });
     document.querySelectorAll('.pkg-detail').forEach(d => d.classList.remove('open'));
     document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 

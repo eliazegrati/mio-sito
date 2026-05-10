@@ -9,7 +9,10 @@
       "Bash(node *)",
       "Bash(cp -r \"/Users/eliazegrati/Desktop/Arcobalenodanza website/node_modules/puppeteer\" /Users/eliazegrati/Desktop/eliazegrati.digital/node_modules/puppeteer)",
       "Bash(cp \"/Users/eliazegrati/Desktop/Arcobalenodanza website/screenshot.mjs\" /Users/eliazegrati/Desktop/eliazegrati.digital/screenshot.mjs)",
-      "Bash(lsof -ti:3000)"
+      "Bash(lsof -ti:3000)",
+      "Bash(npx serve *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
