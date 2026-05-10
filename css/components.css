@@ -673,12 +673,31 @@ body {
   .pkg-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
   .pkg-detail-body { grid-template-columns: 1fr; }
   .case-details-inner { grid-template-columns: 1fr; }
+
+  /* Apertura pannello più morbida su mobile: solo fade, no sbalzo */
+  .pkg-detail.open {
+    animation: pkgFadeIn 0.45s cubic-bezier(0.22,1,0.36,1);
+  }
+  @keyframes pkgFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
   .footer-bottom { flex-direction: column; text-align: center; }
   .tab-bar { width: 100%; justify-content: stretch; }
   .tab-btn { flex: 1; text-align: center; padding-left: 0.8em; padding-right: 0.8em; }
+
+  /* Label categoria: cornice arrotondata mobile-only */
+  .tab-bar-label {
+    width: fit-content;
+    margin: 0 auto var(--sp-3);
+    padding: 0.4em 1.3em;
+    background: rgba(255,255,255,0.85);
+    border: 1.5px solid var(--inchiostro-20);
+    border-radius: var(--r-lg);
+  }
 
   /* Case card mobile fixes */
   .case-card-body { padding: var(--sp-3) var(--sp-3); }
