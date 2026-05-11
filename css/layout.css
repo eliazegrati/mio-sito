@@ -31,6 +31,43 @@
 .hero-parallax-l,
 .hero-parallax-r { will-change: transform; }
 
+/* ── Glow + decorazione dietro la finestra illustrazione ── */
+.hero-parallax-r { position: relative; }
+
+.hero-parallax-r::before {
+  content: '';
+  position: absolute;
+  inset: -80px -60px;
+  background:
+    radial-gradient(ellipse 60% 70% at 18% 62%, rgba(187,93,48,0.22) 0%, transparent 58%),
+    radial-gradient(ellipse 72% 62% at 84% 58%, rgba(110,144,143,0.17) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 52% at 58% 8%,  rgba(216,143,77,0.15) 0%, transparent 50%);
+  filter: blur(52px);
+  z-index: -1;
+  pointer-events: none;
+  animation: heroGlowBreath 9s ease-in-out infinite alternate;
+}
+
+/* Dot grid — visibile sui bordi fuori dalla cornice */
+.hero-parallax-r::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: -22px;
+  width: 130px;
+  height: 130px;
+  background-image: radial-gradient(circle, rgba(187,93,48,0.30) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 4px;
+}
+
+@keyframes heroGlowBreath {
+  0%   { opacity: 0.72; transform: scale(1)    translate(0,   0); }
+  100% { opacity: 1;    transform: scale(1.09) translate(-6px, -10px); }
+}
+
 .hero-content { max-width: 500px; }
 
 .hero-eyebrow {
