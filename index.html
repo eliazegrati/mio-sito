@@ -80,13 +80,189 @@
           <!-- Finestra illustrazione — scorrimento più lento -->
           <div class="hero-parallax-r" aria-hidden="true">
             <div class="hero-window">
-              <img
-                src="assets/elia-zegrati-navigal-marketing-hero.png"
-                alt=""
-                class="hero-window-img"
-                fetchpriority="high"
-                decoding="async"
-              >
+              <!-- SVG: Tramonto veneziano geometrico — inline, no file esterni -->
+              <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg"
+                   style="display:block;width:100%;height:100%;"
+                   preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <defs>
+                  <linearGradient id="vz-sky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%"   stop-color="#F8F1E7"/>
+                    <stop offset="50%"  stop-color="#F0E2CB"/>
+                    <stop offset="82%"  stop-color="#E5C898"/>
+                    <stop offset="100%" stop-color="#D88F4D" stop-opacity="0.65"/>
+                  </linearGradient>
+                  <linearGradient id="vz-water" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%"   stop-color="#3A6463"/>
+                    <stop offset="38%"  stop-color="#6E908F" stop-opacity="0.82"/>
+                    <stop offset="100%" stop-color="#7AADA9" stop-opacity="0.42"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- ── CIELO ── -->
+                <rect width="900" height="600" fill="url(#vz-sky)"/>
+                <!-- Fasce atmosferiche calde verso l'orizzonte -->
+                <rect x="0" y="282" width="900" height="90"  fill="#D88F4D" opacity="0.08"/>
+                <rect x="0" y="332" width="900" height="46"  fill="#BB5D30" opacity="0.07"/>
+                <rect x="0" y="354" width="900" height="22"  fill="#BB5D30" opacity="0.06"/>
+                <!-- Alone ambientale del sole -->
+                <ellipse cx="630" cy="346" rx="240" ry="160" fill="#D88F4D" opacity="0.07"/>
+                <ellipse cx="630" cy="346" rx="165" ry="108" fill="#D88F4D" opacity="0.08"/>
+                <ellipse cx="630" cy="346" rx="108" ry="72"  fill="#D88F4D" opacity="0.09"/>
+
+                <!-- ── SOLE — cerchi concentrici modulari ── -->
+                <circle cx="630" cy="346" r="90"  fill="#D88F4D" opacity="0.10"/>
+                <circle cx="630" cy="346" r="66"  fill="#D88F4D" opacity="0.18"/>
+                <circle cx="630" cy="346" r="48"  fill="#D88F4D" opacity="0.50"/>
+                <circle cx="630" cy="346" r="34"  fill="#D88F4D" opacity="0.82"/>
+                <circle cx="630" cy="346" r="22"  fill="#BB5D30" opacity="0.90"/>
+                <circle cx="622" cy="338" r="7"   fill="#F2C88A" opacity="0.28"/>
+
+                <!-- ── LINEA ORIZZONTE ── -->
+                <rect x="0" y="372" width="900" height="1.5" fill="#BB5D30" opacity="0.30"/>
+                <rect x="0" y="373.5" width="900" height="1" fill="#D88F4D" opacity="0.22"/>
+
+                <!-- ── ACQUA ── -->
+                <rect x="0" y="374" width="900" height="226" fill="url(#vz-water)"/>
+                <!-- Striature di luce sull'acqua -->
+                <rect x="0"   y="378" width="900" height="2"   fill="#D88F4D" opacity="0.28"/>
+                <rect x="60"  y="387" width="780" height="1.5" fill="#D88F4D" opacity="0.16"/>
+                <rect x="120" y="400" width="660" height="1"   fill="#D88F4D" opacity="0.11"/>
+                <rect x="180" y="415" width="540" height="1"   fill="#D88F4D" opacity="0.08"/>
+                <rect x="240" y="433" width="420" height="1"   fill="#D88F4D" opacity="0.06"/>
+                <rect x="300" y="453" width="300" height="0.5" fill="#D88F4D" opacity="0.04"/>
+
+                <!-- ══ ARCHITETTURE VENEZIANE — sagome geometriche ══ -->
+
+                <!-- ─ Cluster sinistro ─ -->
+                <!-- Campanile sottile -->
+                <polygon points="80,188 89,166 98,188"        fill="#BB5D30" opacity="0.44"/>
+                <rect x="80"  y="188" width="18" height="184" fill="#BB5D30" opacity="0.40"/>
+                <rect x="72"  y="228" width="34" height="24"  fill="#BB5D30" opacity="0.42"/>
+                <rect x="68"  y="350" width="42" height="22"  fill="#BB5D30" opacity="0.38"/>
+                <!-- Chiesa con cupola -->
+                <rect x="38"  y="292" width="108" height="80" fill="#BB5D30" opacity="0.26"/>
+                <path d="M38,292 Q92,255 146,292 Z"           fill="#BB5D30" opacity="0.24"/>
+                <ellipse cx="92" cy="290" rx="30" ry="15"     fill="#BB5D30" opacity="0.32"/>
+                <ellipse cx="92" cy="278" rx="20" ry="10"     fill="#D88F4D" opacity="0.28"/>
+                <rect x="90"  y="267" width="4"  height="14"  fill="#D88F4D" opacity="0.38"/>
+                <rect x="85"  y="273" width="14" height="3"   fill="#D88F4D" opacity="0.38"/>
+                <!-- Palazzetto laterale -->
+                <rect x="148" y="314" width="58" height="58"  fill="#BB5D30" opacity="0.18"/>
+                <polygon points="148,314 177,296 206,314"      fill="#D88F4D" opacity="0.22"/>
+
+                <!-- ─ Cluster centrale ─ -->
+                <!-- Torre con merli -->
+                <rect x="264" y="226" width="24" height="146" fill="#BB5D30" opacity="0.36"/>
+                <rect x="258" y="218" width="36" height="12"  fill="#BB5D30" opacity="0.38"/>
+                <rect x="262" y="210" width="8"  height="10"  fill="#BB5D30" opacity="0.38"/>
+                <rect x="275" y="210" width="8"  height="10"  fill="#BB5D30" opacity="0.38"/>
+                <rect x="288" y="210" width="8"  height="10"  fill="#BB5D30" opacity="0.38"/>
+                <!-- Grande chiesa -->
+                <rect x="214" y="286" width="128" height="86" fill="#BB5D30" opacity="0.22"/>
+                <path d="M214,286 Q278,248 342,286 Z"          fill="#BB5D30" opacity="0.20"/>
+                <!-- Tre cupole -->
+                <ellipse cx="248" cy="284" rx="24" ry="12"    fill="#D88F4D" opacity="0.24"/>
+                <ellipse cx="308" cy="284" rx="18" ry="9"     fill="#D88F4D" opacity="0.20"/>
+                <ellipse cx="278" cy="274" rx="34" ry="16"    fill="#BB5D30" opacity="0.28"/>
+                <ellipse cx="278" cy="261" rx="22" ry="11"    fill="#D88F4D" opacity="0.24"/>
+                <rect x="274" y="249" width="8"  height="14"  fill="#D88F4D" opacity="0.32"/>
+                <!-- Arco ponte -->
+                <path d="M342,355 Q362,340 382,355" stroke="#BB5D30" stroke-width="3" fill="none" opacity="0.18"/>
+
+                <!-- ─ Transizione (davanti al sole, più tenue) ─ -->
+                <rect x="400" y="308" width="44" height="64"  fill="#BB5D30" opacity="0.12"/>
+                <polygon points="400,308 422,290 444,308"      fill="#D88F4D" opacity="0.14"/>
+                <rect x="458" y="298" width="18" height="74"  fill="#BB5D30" opacity="0.10"/>
+
+                <!-- ─ Cluster destro — tonalità verde ─ -->
+                <!-- Campanile destro -->
+                <polygon points="726,218 735,198 744,218"      fill="#6E908F" opacity="0.32"/>
+                <rect x="726" y="218" width="18" height="154"  fill="#6E908F" opacity="0.28"/>
+                <rect x="720" y="238" width="30" height="22"   fill="#6E908F" opacity="0.30"/>
+                <!-- Palazzo con cupola -->
+                <rect x="704" y="280" width="110" height="92"  fill="#6E908F" opacity="0.22"/>
+                <path d="M704,280 Q759,248 814,280 Z"           fill="#6E908F" opacity="0.20"/>
+                <ellipse cx="759" cy="278" rx="32" ry="15"     fill="#6E908F" opacity="0.24"/>
+                <ellipse cx="759" cy="265" rx="20" ry="10"     fill="#6E908F" opacity="0.20"/>
+                <!-- Edificio estremo destro -->
+                <rect x="816" y="298" width="72" height="74"   fill="#6E908F" opacity="0.18"/>
+                <polygon points="816,298 852,278 888,298"       fill="#6E908F" opacity="0.20"/>
+                <rect x="870" y="248" width="13" height="124"  fill="#BB5D30" opacity="0.22"/>
+                <polygon points="870,248 876,232 883,248"       fill="#BB5D30" opacity="0.24"/>
+
+                <!-- ══ RIFLESSI SULL'ACQUA ══ -->
+                <!-- Colonna di luce del sole — si allarga scendendo -->
+                <rect x="614" y="375" width="32"  height="3"   fill="#BB5D30" opacity="0.42"/>
+                <rect x="608" y="381" width="44"  height="2.5" fill="#BB5D30" opacity="0.32"/>
+                <rect x="601" y="391" width="58"  height="2"   fill="#D88F4D" opacity="0.26"/>
+                <rect x="593" y="403" width="74"  height="1.5" fill="#D88F4D" opacity="0.20"/>
+                <rect x="584" y="417" width="92"  height="1.5" fill="#D88F4D" opacity="0.14"/>
+                <rect x="573" y="434" width="114" height="1"   fill="#D88F4D" opacity="0.10"/>
+                <rect x="560" y="453" width="140" height="1"   fill="#D88F4D" opacity="0.07"/>
+                <rect x="545" y="474" width="170" height="0.5" fill="#D88F4D" opacity="0.04"/>
+                <!-- Riflessi edifici -->
+                <rect x="80"  y="376" width="14"  height="24"  fill="#BB5D30" opacity="0.12"/>
+                <rect x="270" y="376" width="18"  height="16"  fill="#BB5D30" opacity="0.09"/>
+                <rect x="730" y="376" width="13"  height="15"  fill="#6E908F" opacity="0.09"/>
+                <rect x="872" y="376" width="10"  height="13"  fill="#6E908F" opacity="0.07"/>
+
+                <!-- ─ Gondola ─ -->
+                <path d="M268,556 Q312,543 356,556 Q400,569 442,556 L440,563 Q398,576 356,563 Q312,576 270,563 Z"
+                      fill="#2C4847" opacity="0.30"/>
+                <path d="M268,556 Q262,553 260,546 Q262,540 265,544 Q267,551 270,554 Z"
+                      fill="#2C4847" opacity="0.30"/>
+                <rect x="336" y="541" width="8" height="16" rx="4" fill="#2C4847" opacity="0.18"/>
+
+                <!-- ══ MODULI DECORATIVI ══ -->
+
+                <!-- Griglia di cerchi — cielo centrale alto -->
+                <circle cx="442" cy="48"  r="2.5" fill="#D88F4D" opacity="0.30"/>
+                <circle cx="460" cy="48"  r="2.5" fill="#D88F4D" opacity="0.20"/>
+                <circle cx="478" cy="48"  r="2.5" fill="#D88F4D" opacity="0.13"/>
+                <circle cx="496" cy="48"  r="2.5" fill="#BB5D30" opacity="0.10"/>
+                <circle cx="442" cy="66"  r="2.5" fill="#BB5D30" opacity="0.22"/>
+                <circle cx="460" cy="66"  r="2.5" fill="#D88F4D" opacity="0.30"/>
+                <circle cx="478" cy="66"  r="2.5" fill="#D88F4D" opacity="0.18"/>
+                <circle cx="496" cy="66"  r="2.5" fill="#D88F4D" opacity="0.12"/>
+                <circle cx="442" cy="84"  r="2.5" fill="#D88F4D" opacity="0.14"/>
+                <circle cx="460" cy="84"  r="2.5" fill="#BB5D30" opacity="0.20"/>
+                <circle cx="478" cy="84"  r="2.5" fill="#D88F4D" opacity="0.26"/>
+                <circle cx="496" cy="84"  r="2.5" fill="#D88F4D" opacity="0.10"/>
+
+                <!-- Punti accentuali nel cielo -->
+                <circle cx="178" cy="92"  r="3.5" fill="#D88F4D" opacity="0.20"/>
+                <circle cx="372" cy="126" r="2.5" fill="#BB5D30" opacity="0.16"/>
+                <circle cx="792" cy="72"  r="3.5" fill="#D88F4D" opacity="0.18"/>
+                <circle cx="844" cy="136" r="2"   fill="#BB5D30" opacity="0.20"/>
+                <circle cx="554" cy="96"  r="3"   fill="#D88F4D" opacity="0.14"/>
+                <circle cx="126" cy="148" r="2.5" fill="#D88F4D" opacity="0.13"/>
+
+                <!-- Triangoli modulari — accento direzionale -->
+                <polygon points="352,84  360,100 344,100" fill="#BB5D30" opacity="0.16"/>
+                <polygon points="760,106 768,122 752,122" fill="#D88F4D" opacity="0.18"/>
+                <polygon points="504,136 512,152 496,152" fill="#BB5D30" opacity="0.13"/>
+
+                <!-- Griglia di quadrati — angolo in alto a destra -->
+                <rect x="748" y="40"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.26"/>
+                <rect x="764" y="40"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.18"/>
+                <rect x="780" y="40"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.12"/>
+                <rect x="748" y="56"  width="9" height="9" rx="1" fill="#BB5D30" opacity="0.20"/>
+                <rect x="764" y="56"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.24"/>
+                <rect x="780" y="56"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.14"/>
+                <rect x="748" y="72"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.12"/>
+                <rect x="764" y="72"  width="9" height="9" rx="1" fill="#D88F4D" opacity="0.18"/>
+                <rect x="780" y="72"  width="9" height="9" rx="1" fill="#BB5D30" opacity="0.15"/>
+
+                <!-- Dettagli geometrici sull'acqua -->
+                <circle cx="148" cy="444" r="2.5" fill="#6E908F" opacity="0.22"/>
+                <circle cx="392" cy="476" r="2"   fill="#6E908F" opacity="0.18"/>
+                <circle cx="518" cy="512" r="3"   fill="#6E908F" opacity="0.20"/>
+                <circle cx="714" cy="456" r="2.5" fill="#D88F4D" opacity="0.16"/>
+                <circle cx="824" cy="488" r="2"   fill="#6E908F" opacity="0.14"/>
+                <rect x="102" y="472" width="7" height="7" rx="1" fill="#6E908F" opacity="0.16"/>
+                <rect x="326" y="502" width="7" height="7" rx="1" fill="#6E908F" opacity="0.13"/>
+                <rect x="812" y="476" width="7" height="7" rx="1" fill="#D88F4D" opacity="0.15"/>
+              </svg>
             </div>
           </div>
 

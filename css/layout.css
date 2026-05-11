@@ -140,16 +140,11 @@
     0 6px 24px rgba(44,26,14,0.07),
     inset 0 0 0 1px rgba(44,26,14,0.05);
 }
-.hero-window-img {
+.hero-window-img,
+.hero-window svg {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  /* Centra sul telefono (≈ 50% orizzontale, leggermente salito) */
-  object-position: 52% 38%;
-  /* Massima qualità di rendering */
-  image-rendering: auto;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* Animazioni di entrata */
@@ -283,19 +278,21 @@
   .valori-grid { grid-template-columns: 1fr; }
   .two-col-intro { grid-template-columns: 1fr; }
 }
+@media (max-width: 900px) {
+  .hero-parallax-r::after { display: none; }
+}
 @media (max-width: 600px) {
   .hero-headline { font-size: clamp(2rem, 9vw, 2.8rem); }
   .section { padding: var(--sp-10) 0; }
   .section--lg { padding: var(--sp-10) 0 var(--sp-12); }
-  /* Mobile: cornice piccola smussata sotto il copy */
+  .hero-parallax-r::before { display: none; }
+  /* Mobile: cornice sotto il copy */
   .hero-window {
-    max-width: 260px;
-    aspect-ratio: 4 / 3;
+    max-width: 320px;
+    aspect-ratio: 3 / 2;
     border-radius: var(--r-xl);
     margin: 0 auto;
     box-shadow: 0 10px 36px rgba(44,26,14,0.10);
   }
-  .hero-window-img {
-    object-position: 52% 30%;
-  }
 }
+
